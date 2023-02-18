@@ -3,8 +3,8 @@ import axios from "axios";
 
 export default defineEventHandler(async (event) => {
   const query = getQuery(event);
-  const token = fs.readFileSync("./public/tagtoken.txt");
-  const cookie = fs.readFileSync("./public/cookie.txt");
+  const token = fs.readFileSync("public/tagtoken.txt");
+  const cookie = fs.readFileSync("public/cookie.txt");
 
   const r = await axios({
     url: "https://ml.corp.kuaishou.com/label/api/datasource/statistic/queryStageStatistic",

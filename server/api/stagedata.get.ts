@@ -3,8 +3,8 @@ import fs from "fs";
 
 export default defineEventHandler(async (event) => {
   const query = getQuery(event);
-  const token = fs.readFileSync("/public/stagetoken.txt");
-  const cookie = fs.readFileSync('/public/cookie.txt')
+  const token = fs.readFileSync("public/stagetoken.txt");
+  const cookie = fs.readFileSync('public/cookie.txt')
   // const test = await axios.get('http://114.116.41.110:4002/static/cookie.txt')
 
   const r = await axios({
