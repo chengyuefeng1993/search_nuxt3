@@ -3,8 +3,8 @@ import axios from "axios";
 
 export default defineEventHandler(async (event) => {
   const query = getQuery(event);
-  const token = fs.readFileSync("./server/api/tagtoken.txt");
-  const cookie = fs.readFileSync("./server/api/cookie.txt");
+  const token = fs.readFileSync("./public/tagtoken.txt");
+  const cookie = fs.readFileSync("./public/cookie.txt");
 
   const r = await axios({
     url: "https://ml.corp.kuaishou.com/label/api/datasource/statistic/queryStageStatistic",
@@ -26,7 +26,7 @@ export default defineEventHandler(async (event) => {
     ?.match(/\w{64}/g)
     ?.pop();
   if (newToken) {
-    fs.writeFile("./server/api/tagtoken.txt", newToken, "utf-8", (err) => {
+    fs.writeFile("./public/tagtoken.txt", newToken, "utf-8", (err) => {
       if (err) throw err;
     });
   }
